@@ -367,22 +367,56 @@ input::placeholder { color: #B4B2A9; font-weight: 400; }
         </div>
       </div>
 
-      <div class="account-card">
-        <div class="account-header">
-          <div class="account-label">📌 기장료 안내</div>
+      <div class="form-card">
+        <div class="section-header">
+          <div class="section-num">6</div>
+          <div class="section-title">기장료 안내</div>
         </div>
-        <div style="font-size: 16px; font-weight: 700; color: #5F4D17; line-height: 1.5; margin-bottom: 10px;">
-          기장료는 매월 <span style="color: #1960B5;">CMS 자동이체</span>로 출금됩니다
+        <div style="background: #FBF5E5; border-radius: 8px; padding: 14px 16px; margin-bottom: 14px;">
+          <div style="font-size: 15px; font-weight: 700; color: #5F4D17; line-height: 1.5; margin-bottom: 6px;">
+            기장료는 매월 <span style="color: #1960B5;">CMS 자동이체</span>로 출금됩니다
+          </div>
+          <div style="font-size: 12px; color: #8B6F1F; line-height: 1.6;">
+            아래에 출금을 원하시는 계좌 정보를 입력해주세요.
+          </div>
         </div>
-        <div class="account-notice">
-          <strong>ⓘ 안내</strong><br>
-          계약 진행 시 별도 안내드립니다.
-        </div>
+
+        <label class="required">은행</label>
+        <select id="cms_bank" required style="width: 100%; padding: 11px 12px; border: 0.5px solid rgba(0,0,0,0.2); border-radius: 8px; font-size: 15px; font-family: inherit; background: #fff; color: #2c2c2a; -webkit-appearance: none; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%235F5E5A%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px;">
+          <option value="">은행을 선택해주세요</option>
+          <option value="산업은행">산업은행</option>
+          <option value="기업은행">기업은행</option>
+          <option value="국민은행">국민은행</option>
+          <option value="수협은행">수협은행</option>
+          <option value="농협은행">농협은행</option>
+          <option value="지역농축협">지역농축협</option>
+          <option value="우리은행">우리은행</option>
+          <option value="SC은행">SC은행</option>
+          <option value="한국씨티은행">한국씨티은행</option>
+          <option value="수협중앙회">수협중앙회</option>
+          <option value="아이엠뱅크(구.대구은행)">아이엠뱅크(구.대구은행)</option>
+          <option value="부산은행">부산은행</option>
+          <option value="광주은행">광주은행</option>
+          <option value="제주은행">제주은행</option>
+          <option value="전북은행">전북은행</option>
+          <option value="경남은행">경남은행</option>
+          <option value="새마을금고중앙회">새마을금고중앙회</option>
+          <option value="신협중앙회">신협중앙회</option>
+          <option value="저축은행중앙회">저축은행중앙회</option>
+          <option value="산림조합중앙회">산림조합중앙회</option>
+          <option value="우체국">우체국</option>
+          <option value="KEB하나은행">KEB하나은행</option>
+          <option value="신한은행">신한은행</option>
+          <option value="카카오뱅크">카카오뱅크</option>
+        </select>
+
+        <label class="required" style="margin-top: 12px;">계좌번호</label>
+        <input type="text" id="cms_account" required placeholder="계좌번호를 입력해주세요 (- 없이도 가능)">
       </div>
 
       <div class="form-card">
         <div class="section-header">
-          <div class="section-num">6</div>
+          <div class="section-num">7</div>
           <div class="section-title">개인정보 수집·이용 동의</div>
         </div>
         <div class="consent-info">
@@ -623,6 +657,8 @@ document.getElementById('taxForm').addEventListener('submit', async function(e) 
       home_addr: (document.getElementById('home_addr').value.trim() + ' ' + document.getElementById('home_addr_detail').value.trim()).trim(),
       biz_no:    document.getElementById('biz_no').value.trim(),
       biz_addr:  (document.getElementById('biz_addr').value.trim() + ' ' + document.getElementById('biz_addr_detail').value.trim()).trim(),
+      cms_bank:    document.getElementById('cms_bank').value,
+      cms_account: document.getElementById('cms_account').value.trim(),
       consent:   document.getElementById('consent').checked,
       files:     files
     };
